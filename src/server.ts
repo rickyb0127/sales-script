@@ -24,6 +24,10 @@ export const createServer = async () => {
   const stripe = require("stripe")(process.env.STRIPE_KEY);
   app.use(cors());
 
+  if(process.env.ENV === "production") {
+    app.use(express.static(__dirname + "/public/"));
+  }
+
   app.post("/stripe-webhooks", bodyParser.raw({type: 'application/json'}), async (req, res) => {
     console.log("calling stripe webhook");
     const endpointSecret = process.env.STRIPE_ENDPOINT_SECRET;
