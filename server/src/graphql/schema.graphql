@@ -1,0 +1,128 @@
+type User {
+  id: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+  phone: String
+  address1: String
+  address2: String
+  city: String
+  state: String
+  zip: String
+  companyName: String
+  # roles: JSON,
+  settings: UserSettings,
+  isActive: Boolean!
+  paymentStatus: String
+}
+
+type UserSettings {
+  profileImgUrl: String
+}
+
+enum StateEnum {
+  AL
+  AK
+  AS
+  AZ
+  AR
+  CA
+  CO
+  CT
+  DE
+  DC
+  FM
+  FL
+  GA
+  GU
+  HI
+  ID
+  IL
+  IN
+  IA
+  KS
+  KY
+  LA
+  ME
+  MH
+  MD
+  MA
+  MI
+  MN
+  MS
+  MO
+  MT
+  NE
+  NV
+  NH
+  NJ
+  NM
+  NY
+  NC
+  ND
+  MP
+  OH
+  OK
+  OR
+  PW
+  PA
+  PR
+  RI
+  SC
+  SD
+  TN
+  TX
+  UT
+  VT
+  VI
+  VA
+  WA
+  WV
+  WI
+  WY
+}
+
+input RegisterInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  phone: String!
+  address1: String
+  address2: String
+  city: String
+  state: StateEnum
+  zip: String
+  companyName: String
+}
+
+input UpdateUserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String
+  phone: String!
+  address1: String
+  address2: String
+  city: String
+  state: StateEnum
+  zip: String
+  companyName: String
+  profileImgUrl: String
+}
+
+type Query {
+  user: User
+  login(email: String!, password: String!): String
+}
+
+type Mutation {
+  register(input: RegisterInput!): String
+  createPaymentIntent(promoCode: String, enableAutomaticPayments: Boolean): String
+  updateUser(input: UpdateUserInput!): String
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

@@ -1,0 +1,20 @@
+body {
+  margin: 0px !important;
+}
+
+.link {
+  color: blue;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: black;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.card-body-img {
+  width: 100%;
+}
