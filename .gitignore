@@ -1,11 +1,10 @@
 .DS_Store
 node_modules
 /dist
-server/node_modules
 client/node_modules
 client/dist
-server/config
-server/public
+config
+public
 
 # local env files
 .env
