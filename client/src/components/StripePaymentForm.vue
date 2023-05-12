@@ -60,7 +60,7 @@ export default {
           //`Elements` instance that was used to create the Payment Element
           elements: this.elements,
           confirmParams: {
-            return_url: 'http://localhost:8080',
+            return_url: process.env.VUE_APP_STRIPE_RETURN_URL,
             payment_method_data: {
               billing_details: {
                 email: userData.email
