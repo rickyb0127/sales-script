@@ -25,7 +25,7 @@ export const createServer = async () => {
   app.use(cors());
 
   if(process.env.ENV === "production") {
-    app.use(express.static(__dirname + "/public/"));
+    app.use(express.static("public/"));
   }
 
   app.post("/stripe-webhooks", bodyParser.raw({type: 'application/json'}), async (req, res) => {
